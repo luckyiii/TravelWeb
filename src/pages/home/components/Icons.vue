@@ -17,54 +17,18 @@
 <script>
 export default{
   name: 'HomeIcons',
+  props: {
+    list: Array
+  },
   data () {
     return {
-      swiperOption: {
-
-      },
-      iconsList: [{
-        id: '0001',
-        imgUrl: '../../../../static/images/icons/icon1.png',
-        desc: '热门景点'
-      }, {
-        id: '0002',
-        imgUrl: '../../../../static/images/icons/icon2.png',
-        desc: '热门景点'
-      }, {
-        id: '0003',
-        imgUrl: '../../../../static/images/icons/icon3.png',
-        desc: '热门景点'
-      }, {
-        id: '0004',
-        imgUrl: '../../../../static/images/icons/icon4.png',
-        desc: '热门景点'
-      }, {
-        id: '0005',
-        imgUrl: '../../../../static/images/icons/icon1.png',
-        desc: '热门景点'
-      }, {
-        id: '0006',
-        imgUrl: '../../../../static/images/icons/icon2.png',
-        desc: '热门景点'
-      }, {
-        id: '0007',
-        imgUrl: '../../../../static/images/icons/icon3.png',
-        desc: '热门景点'
-      }, {
-        id: '0008',
-        imgUrl: '../../../../static/images/icons/icon4.png',
-        desc: '热门景点'
-      }, {
-        id: '0009',
-        imgUrl: '../../../../static/images/icons/icon5.png',
-        desc: '热门景点'
-      }]
+      swiperOption: {}
     }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -83,8 +47,6 @@ export default{
   .icons >>> .swiper-container
     height 0
     padding-bottom 50%
-  .icons
-    margin-top .1rem
     .icon
       position relative
       overflow hidden
@@ -109,7 +71,7 @@ export default{
         right 0
         bottom .44rem
         .icon-img-content
-          height 100%
+          height 88%
           display block
           margin .1rem auto
 </style>

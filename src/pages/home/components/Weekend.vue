@@ -3,7 +3,7 @@
         <div class="title">周末游</div>
         <ul>
             <li class="item border-bottom"
-                v-for="item of recommendList"
+                v-for="item of list"
                 :key="item.id">
                 <div class="item-img-wrap">
                     <img :src="item.imgUrl" class="item-img"/>
@@ -20,30 +20,8 @@
 <script>
 export default{
   name: 'HomeWeekend',
-  data () {
-    return {
-      recommendList: [{
-        id: '0001',
-        imgUrl: 'https://imgs.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg',
-        title: '北京野生动物园',
-        desc: '敢与森林之王近距离接触吗？'
-      }, {
-        id: '0002',
-        imgUrl: 'https://imgs.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg',
-        title: '北京野生动物园',
-        desc: '敢与森林之王近距离接触吗？'
-      }, {
-        id: '0003',
-        imgUrl: 'https://imgs.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg',
-        title: '北京野生动物园',
-        desc: '敢与森林之王近距离接触吗？'
-      }, {
-        id: '0004',
-        imgUrl: 'https://imgs.qunarzz.com/sight/source/1505/aa/7baaf8a851d221.jpg_r_640x214_1431200f.jpg',
-        title: '北京野生动物园',
-        desc: '敢与森林之王近距离接触吗？'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
