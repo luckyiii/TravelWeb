@@ -1,0 +1,113 @@
+<template>
+    <div class="icons">
+        <swiper class="swiper-container" :options="swiperOption">
+            <swiper-slide v-for="(page, index) of pages" :key="index">
+                <div class="icon" v-for="item of page" :key="item.id">
+                    <div class="icon-img">
+                        <img class="icon-img-content" :src="item.imgUrl" />
+                    </div>
+                    <p class="icon-desc">{{item.desc}}</p>
+                </div>
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+        </swiper>
+    </div>
+</template>
+
+<script>
+export default{
+  name: 'HomeIcons',
+  data () {
+    return {
+      swiperOption: {
+
+      },
+      iconsList: [{
+        id: '0001',
+        imgUrl: '../../../../static/images/icons/icon1.png',
+        desc: '热门景点'
+      }, {
+        id: '0002',
+        imgUrl: '../../../../static/images/icons/icon2.png',
+        desc: '热门景点'
+      }, {
+        id: '0003',
+        imgUrl: '../../../../static/images/icons/icon3.png',
+        desc: '热门景点'
+      }, {
+        id: '0004',
+        imgUrl: '../../../../static/images/icons/icon4.png',
+        desc: '热门景点'
+      }, {
+        id: '0005',
+        imgUrl: '../../../../static/images/icons/icon1.png',
+        desc: '热门景点'
+      }, {
+        id: '0006',
+        imgUrl: '../../../../static/images/icons/icon2.png',
+        desc: '热门景点'
+      }, {
+        id: '0007',
+        imgUrl: '../../../../static/images/icons/icon3.png',
+        desc: '热门景点'
+      }, {
+        id: '0008',
+        imgUrl: '../../../../static/images/icons/icon4.png',
+        desc: '热门景点'
+      }, {
+        id: '0009',
+        imgUrl: '../../../../static/images/icons/icon5.png',
+        desc: '热门景点'
+      }]
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.iconsList.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  }
+}
+</script>
+
+<style lang="stylus" scoped>
+@import '~styles/varibles.styl'
+@import '~styles/mixins.styl'
+  .icons >>> .swiper-container
+    height 0
+    padding-bottom 50%
+    .icon
+      position relative
+      overflow hidden
+      float left
+      width 25%
+      height 0
+      padding-bottom 25%
+      .icon-desc
+        position absolute
+        bottom 0
+        left 0
+        right 0
+        height .44rem
+        line-height .44rem
+        color $darkTextColor
+        text-align center
+        ellipsis()
+      .icon-img
+        position absolute
+        top 0
+        left 0
+        right 0
+        bottom .44rem
+        .icon-img-content
+          height 100%
+          display block
+          margin .1rem auto
+</style>
