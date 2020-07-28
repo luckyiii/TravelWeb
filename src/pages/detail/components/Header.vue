@@ -42,10 +42,10 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
   },
-  deactivated () {
+  destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   }
 }
@@ -67,6 +67,7 @@ export default {
       line-height .8rem
       color #fff
   .header-fixed
+      z-index 2
       position fixed
       top 0
       right 0
